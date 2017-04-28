@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+	<title>
+			 蘑菇头后台管理</title>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="/favicon.ico">
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/Public/library/Bootstrap3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/Public/admin/css/common.css?1.1.2">
+
+	 <script src="/Public/library/Bootstrap3.3.7/js/jquery-1.11.1.min.js">	</script>
+	 <script src="/Public/library/Bootstrap3.3.7/js/bootstrap.min.js">	</script>
+	  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>  
+      <![endif]-->
+	
+	<script type="text/javascript">
+			var controller="Category";//全局的当前控制器变量
+
+			var url="/index.php/Admin/Category";//这一个是ajax提交的修改地址
+			var ajax_url="/index.php/Admin/Ajax/ajax_edit.html";//这一个是ajax提交的修改地址
+	</script>
+
+<body>
+	 <header class=" head-box">
+		<div class="container">
+			<div class="col-lg-3">商城后台</div>
+			<div class="col-lg-4 pull-right">
+				<ul class="list-inline">
+					<li>消息</li>
+					<li>admin</li>
+					<li> <i class="fa fa-sign-out"></i>
+                        <a href="/index.php/Admin/user/logout.html">退出</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+		<!-- <div class="row">
+			<div class="col-lg-3 col-xs-push-9">123</div>
+			<div class="col-lg-9 col-xs-push-3">345</div>
+		</div> -->
+		<div class="row ">
+			<div class="col-lg-3 left_menu_box">
+				<ul>
+				<li>
+
+						<a class="btn btn-success" href="/index.php/Home/Index/index.html" target="_balnk">查看首页</a>
+					 
+					</li>
+					 <li  >
+						<a href="#goods_manager" data-toggle="collapse" >商品管理</a>
+						
+						<!-- CONTROLLER_NAME 获取当前的控制器名称 -->
+
+						<!-- 当前的控制器 :Category						<br>
+						当前的方法 :index -->
+						<ul class="collapse 	" id="goods_manager">
+							<li>
+								<a href="/index.php/Admin/goods/index.html">商品列表</a>
+							</li>
+							<li><a href="/index.php/Admin/goods/add.html">添加商品</a></li>
+						</ul>
+					</li>
+					<li  >
+						<a href="#goods_cate_manager" data-toggle="collapse" >商品分类管理</a>
+						
+						<!-- CONTROLLER_NAME 获取当前的控制器名称 -->
+
+						<!-- 当前的控制器 :Category						<br>
+						当前的方法 :index -->
+						<ul class="collapse in	" id="goods_cate_manager">
+							<li>
+								<a href="/index.php/Admin/category/index.html">商品分类列表</a>
+							</li>
+							<li><a href="/index.php/Admin/category/add.html">添加商品分类</a></li>
+						</ul>
+					</li>
+
+					<li  >
+						<a href="/index.php/Admin/Order/index.html"  >订单管理</a>
+						
+						 
+					</li>
+
+				
+
+					
+
+
+				</ul>
+			</div>
+
+
+<div class="col-lg-9 ">
+
+    <ol class="breadcrumb">
+        <li>后台管理</li>
+        <li>商品列表</li>
+    </ol>
+    <!-- 内容列表页面 -->
+    <div class="right_content_box">
+        <div class="row">
+            <div class="col-lg-4">
+                <a href="/index.php/Admin/category/add.html" class="btn btn-success">添加信息</a>
+                            </div>
+            <div class="col-lg-5 pull-right">
+                <form action="">
+                    <input type="text" class="form-control" style="width: 50%;display: inline-block;" placeholder="请输入关键词">
+                    <input value="搜索" type="submit" class="btn btn-success"></form>
+            </div>
+
+        </div>
+        <table class="table mt-10">
+            <tr>
+                <th width="100">
+                    <label >
+                        <input type="checkbox">全选</label>
+                </th>
+                <th width="100">分类ID</th>
+                <th>分类标题</th>
+                <th>操作</th>
+            </tr>
+
+            <!--多一个属性condition（条件）
+                if
+                include
+                volist
+                模版引擎的标签
+            -->
+
+            <tr data-id="1">
+                        <td>
+                            <input type="checkbox"></td>
+                        <td >1</td>
+                        <td data-toggle="ajax_edit"  data-colmun="cat_name">裤子</td>
+
+                        <td>
+                            <a href="/index.php/Admin/category/index/p_id/1.html">查看子级分类</a>
+                                |                            <a href="/index.php/Admin/category/edit/id/1.html">修改</a>
+                            |
+                            <a href="/index.php/Admin/category/delete/id/1.html">删除
+                                <!-- U方法：第一个参数是URL,第二个参数是一个数组类型，传ID -->
+                                <!-- /index.php/Admin/category/delete.html --></a>
+                        </td>
+                    </tr><tr data-id="2">
+                        <td>
+                            <input type="checkbox"></td>
+                        <td >2</td>
+                        <td data-toggle="ajax_edit"  data-colmun="cat_name">裙子</td>
+
+                        <td>
+                            <a href="/index.php/Admin/category/index/p_id/2.html">查看子级分类</a>
+                                |                            <a href="/index.php/Admin/category/edit/id/2.html">修改</a>
+                            |
+                            <a href="/index.php/Admin/category/delete/id/2.html">删除
+                                <!-- U方法：第一个参数是URL,第二个参数是一个数组类型，传ID -->
+                                <!-- /index.php/Admin/category/delete.html --></a>
+                        </td>
+                    </tr><tr data-id="3">
+                        <td>
+                            <input type="checkbox"></td>
+                        <td >3</td>
+                        <td data-toggle="ajax_edit"  data-colmun="cat_name">上衣</td>
+
+                        <td>
+                            <a href="/index.php/Admin/category/index/p_id/3.html">查看子级分类</a>
+                                |                            <a href="/index.php/Admin/category/edit/id/3.html">修改</a>
+                            |
+                            <a href="/index.php/Admin/category/delete/id/3.html">删除
+                                <!-- U方法：第一个参数是URL,第二个参数是一个数组类型，传ID -->
+                                <!-- /index.php/Admin/category/delete.html --></a>
+                        </td>
+                    </tr><tr data-id="13">
+                        <td>
+                            <input type="checkbox"></td>
+                        <td >13</td>
+                        <td data-toggle="ajax_edit"  data-colmun="cat_name">帽子</td>
+
+                        <td>
+                            <a href="/index.php/Admin/category/index/p_id/13.html">查看子级分类</a>
+                                |                            <a href="/index.php/Admin/category/edit/id/13.html">修改</a>
+                            |
+                            <a href="/index.php/Admin/category/delete/id/13.html">删除
+                                <!-- U方法：第一个参数是URL,第二个参数是一个数组类型，传ID -->
+                                <!-- /index.php/Admin/category/delete.html --></a>
+                        </td>
+                    </tr>
+        </table>
+
+        <!-- 警示框 -->
+        <div class="alert alert-success hide"   id="msg_box"></div>
+
+    </div>
+</div>
+
+
+	 <script src="/Public/admin/js/common.js">	</script>
+ <div  class="footer_box">
+ 	底部内容区域
+ </div>
+	</body>
+
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+	<title>
+			 蘑菇头后台管理</title>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="/favicon.ico">
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/Public/library/Bootstrap3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/Public/admin/css/common.css?1.1.2">
+
+	 <script src="/Public/library/Bootstrap3.3.7/js/jquery-1.11.1.min.js">	</script>
+	 <script src="/Public/library/Bootstrap3.3.7/js/bootstrap.min.js">	</script>
+	  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>  
+      <![endif]-->
+	
+	<script type="text/javascript">
+			var controller="Order";//全局的当前控制器变量
+
+			var url="/index.php/Admin/Order";//这一个是ajax提交的修改地址
+			var ajax_url="/index.php/Admin/Ajax/ajax_edit.html";//这一个是ajax提交的修改地址
+	</script>
+
+<body>
+	 <header class=" head-box">
+		<div class="container">
+			<div class="col-lg-3">商城后台</div>
+			<div class="col-lg-4 pull-right">
+				<ul class="list-inline">
+					<li>消息</li>
+					<li>admin</li>
+					<li> <i class="fa fa-sign-out"></i>
+                        <a href="/index.php/Admin/user/logout.html">退出</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+		<!-- <div class="row">
+			<div class="col-lg-3 col-xs-push-9">123</div>
+			<div class="col-lg-9 col-xs-push-3">345</div>
+		</div> -->
+		<div class="row ">
+			<div class="col-lg-3 left_menu_box">
+				<ul>
+				<li>
+
+						<a class="btn btn-success" href="/index.php/Home/Index/index.html" target="_balnk">查看首页</a>
+					 
+					</li>
+					 <li  >
+						<a href="#goods_manager" data-toggle="collapse" >商品管理</a>
+						
+						<!-- CONTROLLER_NAME 获取当前的控制器名称 -->
+
+						<!-- 当前的控制器 :Order						<br>
+						当前的方法 :index -->
+						<ul class="collapse 	" id="goods_manager">
+							<li>
+								<a href="/index.php/Admin/goods/index.html">商品列表</a>
+							</li>
+							<li><a href="/index.php/Admin/goods/add.html">添加商品</a></li>
+						</ul>
+					</li>
+					<li  >
+						<a href="#goods_cate_manager" data-toggle="collapse" >商品分类管理</a>
+						
+						<!-- CONTROLLER_NAME 获取当前的控制器名称 -->
+
+						<!-- 当前的控制器 :Order						<br>
+						当前的方法 :index -->
+						<ul class="collapse 	" id="goods_cate_manager">
+							<li>
+								<a href="/index.php/Admin/category/index.html">商品分类列表</a>
+							</li>
+							<li><a href="/index.php/Admin/category/add.html">添加商品分类</a></li>
+						</ul>
+					</li>
+
+					<li  >
+						<a href="/index.php/Admin/Order/index.html"  >订单管理</a>
+						
+						 
+					</li>
+
+				
+
+					
+
+
+				</ul>
+			</div>
+
+
+<div class="col-lg-9 ">
+
+    <ol class="breadcrumb">
+        <li>后台管理</li>
+        <li>订单列表</li>
+    </ol>
+    <!-- 内容列表页面 -->
+    <div class="right_content_box">
+        <div class="row">
+
+            <div class="col-lg-5 pull-right">
+                <form action="">
+                    <input type="text" class="form-control" style="width: 50%;display: inline-block;" placeholder="请输入关键词">
+                    <input value="搜索" type="submit" class="btn btn-success"></form>
+            </div>
+
+        </div>
+        <table class="table mt-10">
+            <tr>
+                <th width="100">
+                    <label >
+                        <input type="checkbox">全选</label>
+                </th>
+                <th >订单ID</th>
+                <th >订单编号</th>
+                <th>订单价格</th>
+                <th>买家名称</th>
+                <th>手机号码</th>
+                <th>订单状态</th>
+                <th>操作</th>
+            </tr>
+
+            <!--多一个属性condition（条件）
+                if
+                include
+                volist
+                模版引擎的标签
+            -->
+
+            <tr data-id="4">
+                        <td>
+                            <input type="checkbox"></td>
+                        <td >4</td>
+                        <td >201704271702173809</td>
+                        <td class="price_td" data-toggle="ajax_edit"  data-colmun="order_amount">280.01</td>
+                        <td >购物汪</td>
+                        <td >13322226666</td>
+                        <td ><b>已完成</b></td>
+
+                        <td>
+                            <a   href="/index.php/Admin/Order/detailed/id/4.html">查看订单详情</a>
+
+                        </td>
+                    </tr><tr data-id="3">
+                        <td>
+                            <input type="checkbox"></td>
+                        <td >3</td>
+                        <td >201704271559366973</td>
+                        <td class="price_td" data-toggle="ajax_edit"  data-colmun="order_amount">229.60</td>
+                        <td >购物汪</td>
+                        <td >13322226666</td>
+                        <td ><b>待评价</b></td>
+
+                        <td>
+                            <a   href="/index.php/Admin/Order/detailed/id/3.html">查看订单详情</a>
+
+                        </td>
+                    </tr><tr data-id="2">
+                        <td>
+                            <input type="checkbox"></td>
+                        <td >2</td>
+                        <td >201704271143473312</td>
+                        <td class="price_td" data-toggle="ajax_edit"  data-colmun="order_amount">17142.40</td>
+                        <td >购物汪</td>
+                        <td >13322226666</td>
+                        <td ><b>待发货</b></td>
+
+                        <td>
+                            <a   href="/index.php/Admin/Order/detailed/id/2.html">查看订单详情</a>
+
+                        </td>
+                    </tr>
+        </table>
+        <div class="pagination">    </div>
+        <!-- 警示框 -->
+        <div class="alert alert-success hide"   id="msg_box"></div>
+
+    </div>
+</div>
+
+
+	 <script src="/Public/admin/js/common.js">	</script>
+ <div  class="footer_box">
+ 	底部内容区域
+ </div>
+	</body>
+
+</html>
