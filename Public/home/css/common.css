@@ -1,0 +1,4 @@
+.buyers_home{border:1px solid #ccc;min-height: 300px;margin-top: 20px;}
+.buyers_home .left_menu{background-color: #fff;color: #fff;padding: 20px !important; height: 80em;}
+.buyers_home .right_menu{padding-left:20px !important }
+.buyers_home .left_menu li{font-size: 14px;line-height: 38px}
